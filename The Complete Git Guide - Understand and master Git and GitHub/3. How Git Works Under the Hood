@@ -1,0 +1,88 @@
+SECTION - 3
+
+To learn how git works under the hood we need to firstly intialize the
+our first repository.
+We can intialize our repository using the following command :
+    git init
+
+Note : 
+Git repository will be initially empty even if directory where you intialize Git is not empty and contains files and other directories.
+
+After entering "git init" command new hidden folder 
+
+Use ls -la to see the hidden .git file that is created after 
+initialising a git repository.
+
+git : (master) refers to that this repository is managed by git.
+'master' is the name of the default branch. 
+
+
+OVERVIEW OF THE .GIT FOLDER
+
+- > Never manually change the .GIT FOLDER
+
+cd .git
+- > To move into the .GIT FOLDER
+
+cat config
+- > To see the contents of the config file.
+- > This is the config of our .git repository.
+
+cat description 
+- > To see the description of the repository.
+- > Edit that file 'description' to name the repository.
+
+cat HEAD
+- > To see the contents of the HEAD file.
+- > ref: refs/heads/master 
+
+
+
+GIT OBJECT TYPES 
+
+There are severaral types of objects git can store.
+These are : 
+1. Blob 
+2. Tree 
+3. Commit 
+4. Annotated Tag
+
+These are the four data types that are used by git to store the file system
+and version control system.
+
+BLOB 
+- > In the form of the blob object, git stores file with any file extenstion possible.
+- > It represents a single file in a file system.
+
+TREE 
+- > With the help of this the git actually stores infomation about the directories.
+
+COMMIT 
+- > With the help of this object type we are able to store different versions of our files.
+
+Annotated Tag 
+- > It is the persistent text pointer to a specific commit.
+
+
+Now, For the management/creation of Blobs and Trees we use the so-called 
+Low level commands like 
+    git hash-object 
+    git cat-file
+    git mktree
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,3 +1,38 @@
-git remote add origin https://github.com/ShivanshKul2504/Git-and-Github.git
-git branch -M main
-git push -u origin main
+SECTION - 1
+
+
+Git is a distributed version control system.
+It is called a distributed version control system because 
+in this we can work with multiple people on the same project.
+
+
+Git can track changes in files in any folder called repository.
+
+Under the hood, Git has its own "file strcuture" 
+and every file is stored in a specific document 
+and every file has a specific(unique) hash.
+
+Git is simply persistent hash map that stores key-value pairs.
+
+Key is hash of the file and value is content of the file.
+
+Git could be used locally without internet and locally.
+This provides us with the full access to the files change history.
+
+Git stores all the data locally in the computer.
+
+Github maybe used just as a backuop for all the local git repositories.
+
+Github is primarily used by distributed teams that work on
+the same projects.
+
+Git is a special file system that allows you to store changes in the computer.
+
+
+
+
+
+
+
+
+

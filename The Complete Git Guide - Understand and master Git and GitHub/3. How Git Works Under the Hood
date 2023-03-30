@@ -71,6 +71,66 @@ Low level commands like
     git mktree
 
 
+To Create a git object we use  : 
+    echo "Hello, Git" | git hash-object --stdin -w
+
+- > After pressing enter, we get a strange sequence of characters.
+- > There will be a new folder that will be created inside the .git folder 
+- > That folders name will be the first 2 characters of the strange sequence of strings we got.
+- > Inside that folder a file named with the rest of the characters will be made.
+
+This all means that git has added the object into its file structure.
+
+Folder name + File name = Hashed strange string.
+
+
+
+JSON VS GIT DATABASE
+
+- > JSON stands for javascript object notation.
+- > This format of data is used for data exchange between different servers. 
+
+For Example : 
+    You can retrieve some data via some API(application programming interface)
+    or from the server to web browser, 
+    or you can send data from database in JSON foramt to a normal server and so on.
+
+Note : 
+    According to specification, keys in JSON "should" be unique 
+    and it is technically possible to create same keys, but no recommended.
+
+Git also stores data in a key value pair format .
+Key in git is the hash of the object.
+Key in git is generated based on the value.
+
+
+
+WHAT IS HASH FUNCTION ? 
+
+- > In the git database, we store files based on their hash.
+- > We create hash based on their contents and after that we create correspoding file in objects.
+
+
+- > Hash function is a function that takes any variable length input and 
+    creates a fixed length hash, independent of the input.
+    This hash length will be always fixed.
+
+
+- > If we know hash but we don't know the input to the hash,
+    we will not be able to create the input based on the hash.
+    Such functions are called one-way functions.
+
+Example : 
+    For higher security and confidentiality user passwords are usually stored in databases as hashes.
+    When user logs in and enters the password, server creates hash of entered passsword and compares it to the hash stored in the database.
+    
+- > Hash functions will generate same hash from the same input.
+
+
+
+
+
+
 
 
 

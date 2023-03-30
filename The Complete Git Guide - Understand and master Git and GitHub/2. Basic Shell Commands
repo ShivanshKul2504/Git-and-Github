@@ -1,0 +1,130 @@
+SECTION - 2
+
+BASIC SHELL COMMANDS
+
+
+mkdir command 
+
+- > It is used to create a directory.
+
+    Example : 
+    mkdir new_folder
+
+
+
+ls
+
+- > It is used to list all the files and directories in the current directory.
+
+    Example : 
+
+        Directory: C:\Users\Shivansh Kulshrestha\GithubFiles\Git and Github     
+
+
+        Mode                 LastWriteTime         Length Name
+        ----                 -------------         ------ ----
+        d-----        30-03-2023     11:21                The Complete Git Guide -  
+                                                        Understand and master Git 
+                                                        and GitHub
+
+    a ) ls - l
+        - > It is used to list the files and directories in a tabular format.
+        - > It provides us with date,name,permissions for each directory.
+        
+    b ) ls -la 
+        - > It is used to see hidden folder and files.
+
+
+
+cd 
+
+- > It is used to change the directory.
+    .. is used to switch to the parent directory.
+    . It is the alias of the parent directory.
+
+
+pwd 
+
+- > It is used to find the path to the current working directory.
+    
+    Example : 
+        pwd
+        result : - C:\Users\Shivansh Kulshrestha\GithubFiles\Git and Github
+
+
+Clear 
+
+- > It is used to clear the terminal.
+
+
+
+SHELL COMMANDS (FILE MANAGEMENT)
+
+
+touch 
+- > It is used to create a new file.
+
+
+    Example : 
+    touch new-file.txt
+
+
+
+cat 
+
+- > List the contents of the file.
+
+    Example : 
+    cat another-file.txt
+
+
+
+nano 
+
+- > It is used to Edit a file.
+    Example : 
+    nano new-file.txt
+
+
+
+Tab 
+
+- > It is the autocomplete key.
+
+
+Echo 
+
+- > It is used to print to the terminal.
+    a ) > 
+    -> Write to the file.
+    Example : 
+    echo "hello world" > textfile.txt
+
+    b ) > > 
+    -> Append to the file.
+    Example : 
+        echo "Another line" >> another-file.txt 
+
+
+man 
+- > It is used to get help on a specific command.
+
+    Example : 
+    man clear 
+
+
+rm 
+
+- > This command is used to remove the files or folders.
+    
+    Example : 
+    rm file.txt
+
+    - > To remove a directory we use : 
+        rm -rf new-folder
+    The above command removes the folder.
+
+
+
+
+

@@ -160,6 +160,147 @@ echo -n "hello, Git"
 - > This means that their is no line break at the end.
 
 
+echo "Hello, Git" | shasum
+- > This will generate SHA1 hash of the input data.
+
+echo -n "Hello, Git" | shasum
+- > The hash output for this will be different from the hash output for the above case as hash generates different inputs.
+
+
+HOW MANY FILES GIT CAN STORE IN THE SAME REPOSITORY ?
+
+WHAT IS THE CHANCE OF PRODUCING SAME HASH FOR DIFFERENT FILES ? 
+
+- > The SHA1 hash combinations will be 2^160.
+
+
+
+GIT HASH COLLISION PROBABILITY
+
+- > Probability of each SHA1 hash
+    1/2^160 = 6.84-49
+
+SHA1 same hash probability = 1/2^320
+- > The proabability is almost equal to None.
+
+
+Git cat-file 
+
+git cat-file -p <hash> Contents of the object (Hello, Git)
+
+git cat-file -s <hash> Size of the object (11)
+
+git cat-file -t <hash> Type of the object (blob)
+
+
+
+
+git hash-object <filename> -w
+
+- > echo "Second file in Git Repository" > new-file.txt
+
+- > cat new-file.txt
+
+- > git hash-object ../new-file.txt (to go to the parent directory)
+
+
+
+Git Blobs don't store filenames 
+
+- > Size and type of each object are stored in git inside each object.
+
+//////////////////////////////////////////////
+TODO
+//////////////////////////////////////////////
+
+
+
+- > Every object in git is stored along with its type ,Length and Delimeter.
+- > Filenames for the blobs are stored in the trees.
+
+
+
+
+GIT OBJECT permissions
+
+- > Git tree objects are stored as : permissions , type, sha1 hash, name of the file or directory.
+
+Permissions : 
+    040000 - > Directory
+    100644 - > Regular non_executable file
+    100664 - > Regular non-executable group-writeable File
+    100755 - > Regular executalbe file
+    120000 - > Symbolic link
+    160000 - > Gitlink
+
+
+//////////////////////////////////////////
+TO DO AFTER THIS 
+//////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

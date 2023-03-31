@@ -52,6 +52,84 @@ There will be a file which will be made inside the .git foler.
 
 
 
+BASIC GIT COMMANDS
+
+git status 
+
+- > current state of git repository
+
+git add 
+- > Add files to the staging area
+- > The files must be located in the working directory.
+- > 
+
+git commit 
+- > Write changes to git repository
+- > This command creates new blobs and trees if it is needed.
+
+Other basic git commands that are used for interaction with remote git repositories are :
+    git pull
+    git push
+    git fetch
+    git clone
+
+
+git log 
+- > history of changes (commits)
+
+git checkout 
+- > checkout commit or branch.
+
+To list the files in the staging area we use : 
+    git ls-files -s
+
+There are four tracking statuses for a file in git repository:
+    Untracked
+    Unmodified
+    Modified
+    Staged
+
+- > By default, when we create a new file , the status for it will be default.
+- > In order to move file from untracked stage to staged stage, we use the git add command.
+- > To move the file from staged stage to Unmodified stage, we use the git commit.
+- > To move the file from unmodified stage to modified stage, just change that file.
+- > Again use git add command , we make the file staged.
+
+
+
+UNSTAGING A FILE 
+
+- > git rum --cached file3.txt
+    - > It means that the file3.txt file was removed from the staging area.
+
+    git ls-files -s
+    - > This will be used to check if the file was removed from the staging area or not.
+
+    git add <spacific file name>
+    - > This will make that specific file appear in the staging area.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

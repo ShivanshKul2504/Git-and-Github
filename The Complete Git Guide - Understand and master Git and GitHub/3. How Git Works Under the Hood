@@ -128,6 +128,55 @@ Example :
 
 
 
+HASH FUNCTIONS OVERVIEW
+
+- > Some of the hash functions are as follows: 
+
+    MD5       - 128bit
+    SHA1      - 160bit
+    SHA256    - 256bit
+    SHA384    - 384bit
+    SHA512    - 512bit
+
+- > MD5 creates a hash that is 128 bit long (smallest in the bunch)
+
+- > Hexadecimal format is used for more concised format of hash.
+
+
+
+SHA1 HASH FUNCTION 
+
+- > It creates hash that is 160 bits long.
+
+Example : 
+    'Hello, Git' 
+    'Hello, Git!' will have two different hashes.
+
+- > Even small change in the input data will lead to creation of completely different hash.
+
+Note: 
+echo -n "hello, Git"
+- > The above command will print "Hello, Git%".
+- > This means that their is no line break at the end.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

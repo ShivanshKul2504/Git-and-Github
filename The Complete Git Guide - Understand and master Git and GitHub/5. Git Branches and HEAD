@@ -1,0 +1,73 @@
+SECTION - 6
+
+GIT BRANCHES AND HEAD
+
+
+MOST COMMON GIT OPERATIONS 
+
+git checkout
+
+- > It is used to retrieve specific version of our project from the repository.
+
+
+Branch is just text reference to the commit 
+
+1. Default branch is master.
+2. Multiple branches can exist in the same repository.
+3. Pointers for all branches are located in .git/refs/heads folder.
+4. Current branch tracks new commits 
+5. Branch pointer moves automatically after every new commit.
+6. Change branch git checkout <branch>
+
+Master branch points to the latest commit.
+
+
+
+
+WHAT IS HEAD IN GIT 
+
+- > Head is just the reference to the currently checked out branch or commit.
+
+1. Head is locally significant
+1. Pointer is located in the .git/HEAD folder
+3. Default pointer is ref:refs/heads/master
+4. Change reference to specific branch git checkout <branch>
+5. Change reference to specific commit git checkout <branch>
+
+- > Your working directory may contain only single "version" of your project at any moment of time.
+
+- > If you dont specify a commit message using -m optoin you rill be asked to enter it in the text file that will be opened in your default text editor.
+
+- > when we delete some files from our repository, Git will not delete  any of the previously created files or folders in the git repository.
+
+
+CHECKOUT SPECIFIC COMMIT 
+
+- > git checkout <commit id>
+
+
+WHY DO WE NEED BRANCHES 
+
+1. Isolate changes: Branches allow developers to work on a specific feature or bug fix without affecting the main codebase. This isolation helps prevent conflicts with other changes and makes it easier to review and merge changes.
+2. Collaborate on code: Branches enable developers to collaborate on code without interfering with each other's work. Each developer can work on their own branch and merge changes back into the main codebase when ready.
+3. Test and deploy safely: Branches allow developers to test changes and deploy them to production safely. Developers can create a new branch, test their changes, and then merge the branch back into the main codebase when ready.
+4. Maintain different versions: Branches are useful for maintaining different versions of the codebase. Developers can create branches for different versions and make changes to each version without affecting the others. This allows for more flexibility in managing code versions and releases.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

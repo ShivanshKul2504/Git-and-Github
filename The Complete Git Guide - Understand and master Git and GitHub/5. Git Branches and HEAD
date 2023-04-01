@@ -54,9 +54,25 @@ WHY DO WE NEED BRANCHES
 4. Maintain different versions: Branches are useful for maintaining different versions of the codebase. Developers can create branches for different versions and make changes to each version without affecting the others. This allows for more flexibility in managing code versions and releases.
 
 
+GIT BRANCHES MANAGEMENT 
+
+git branch                  - List all local branches 
+git branch <name>           - Create new branch
+git checkout <name>         - Checkout specific branch
+git branch -d <name>        - Delete specific Branch
+git branch -m <old> <new>   - Rename specific branch 
+
+- > git branch -d <name> will delete only merged branch
+- > If you want to delete non-merged branch use "-D" option.
+
+Shortcut for creating a branch with checkout :
+git checkout -b <branch name>
 
 
 
+
+
+ 
 
 
 

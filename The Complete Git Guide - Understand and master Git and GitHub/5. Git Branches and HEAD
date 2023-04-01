@@ -69,6 +69,30 @@ Shortcut for creating a branch with checkout :
 git checkout -b <branch name>
 
 
+Example : 
+    git branch temp
+    - > This will create a new branch.
+
+- > When we create a new branch it will be based on the last commit on the current branch.
+
+
+Now, if we do : 
+    git checkout temp 
+    - > This will switch our branch to the new branch temp.
+
+    git checkout -d temp
+    - > This will delete the branch with the specified name.
+
+
+- > When two files has the same content present in them , git will resuse the 
+    blob when required and will not create a new blob. Git will resuse the existing blob for a new file.
+
+
+
+
+
+
+
 
 
 

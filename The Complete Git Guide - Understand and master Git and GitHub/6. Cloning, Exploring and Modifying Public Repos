@@ -1,0 +1,41 @@
+SECTION - 6
+
+CLONING A PUBLIC REPOSITORY
+
+
+- > If you choose download option at hithub, you will download only contents of the working directory.
+- > Git repository(hidden .git folder) will not be downloaded in such case.
+
+git clone <url-string>
+- > With this the public repository will be downloaded with all the commits intact and different versions of the project we can checkout.
+
+
+- > Git stores all the objects in the pack file,it is archived to save space.
+- > The extensions of the file in the pack folder are .idx and .pack 
+
+Action plan for unpacking .pack file : 
+1. Move .pack file out of the "pack" folder
+2. Use "git unpack-objects" command.
+
+cat pack-sha1hash \ git unpack-objects 
+
+
+GIT DIFF COMMAND 
+- > git diff command is used to see the changes in the file now than before.
+
+git diff 
+diff --git a/Git-and-Github b/Git-and-Github
+index 23c8b49..1f8f882 160000
+--- a/Git-and-Github
++++ b/Git-and-Github
+
+- > with 'a\' we see the previous file.
+- > with 'b\' we see the the new file in which changes are made.
+- > with index we see the hash of both the files listed.
+
+
+
+
+
+
+

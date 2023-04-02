@@ -34,6 +34,35 @@ index 23c8b49..1f8f882 160000
 - > with index we see the hash of both the files listed.
 
 
+- > We can move commits from the new-feature branch to the master branch by using the git branch merge feature.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

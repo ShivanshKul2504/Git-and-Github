@@ -21,3 +21,48 @@ Disadvantages of Rebasing:
     1. History modification: Rebasing changes the Git history, which can make it difficult to identify when certain changes were made.
     2. Potential loss of work: Rebasing can potentially lead to the loss of work if not done correctly or if there are conflicts that are not resolved properly.
     3. Can be confusing for team members: Rebasing can be confusing for team members who are not familiar with the process, as it can change the state of branches in ways that are not immediately obvious.
+
+
+
+MERGING VS REBASING 
+
+- > Normal merging result in such case in 3-Way merge and merge commit.
+
+
+HOW TO PERFORM REBASING : 
+
+- > Merging of the feature branch into base branch using rebasing is a two-step proecess : 
+
+1. Checkout feature branch
+    git checkout feature1
+
+2. Rebasing feature branch on top of the base branch
+    git rebase master 
+
+3. Checkout the base branch 
+    git checkout master 
+
+4. Merge feature branch into the base branch.
+    Fast forward merge will be used.
+    git merge feature1
+
+
+INTERNAL REBASING PROCESS 
+
+When you perform a Git rebase, Git moves your changes from one branch to another branch by performing the following internal process:
+
+1. Git creates a temporary copy of the changes you made in your current branch.
+2. Git switches to the target branch that you want to rebase onto.
+3. Git replays the changes you made on top of the target branch by applying each commit from your branch onto the target branch one-by-one. This involves creating new commit objects for each of your changes, which are identical to the original commits but with different parent commits that match the new base branch.
+4. If there are any conflicts during the replay process, Git stops and asks you to resolve them. You'll need to manually resolve any conflicts before Git can continue with the replay process.
+5. Once all changes have been replayed and any conflicts resolved, Git completes the rebase by updating the branch pointer to the latest commit.
+
+    The result of the rebase is a new, linear commit history that includes your changes on top of the target branch, without any merge commits.
+
+    It's worth noting that while Git replays the changes one-by-one, it also checks each commit for differences from the target branch. If a commit introduces changes that are already present in the target branch, Git will skip the commit, as there is no need to apply the same changes again.
+
+    Overall, the rebasing process can be a bit more involved than a regular merge, but it can result in a cleaner and more understandable Git history.
+
+
+- > Old commits from the previous branch are garbage collected.
+

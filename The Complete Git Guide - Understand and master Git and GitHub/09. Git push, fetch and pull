@@ -115,6 +115,30 @@ After fetching it will update .git/FETCH_HEAD list and first branch in this list
 Finally git executes "git merge FETCH_HEAD" command that finds first brnahc in .git/FETCH_HEAD list without "not-for-merge" tag and merges it into local tracking currenlty checked out branch.
 
 
+GIT PULL WITH FAST FORWARD MERGE EXAMPLE : 
+
+
+??????????????????????????????????
+
+
+
+FETCH REMOTE CHANGES MANUALLY ??????????
+
+
+MERGE FETCH HEAD MANUALLY
+
+
+CREATE REMOTE BRANCH BASED ON LOCAL BRANCH
+
+
+HOW TO UPDATE TRACKING STATUSES ON 
+
+
+
+git show-ref
+
+
+REMOVING REMOTE BRANCH USING TERMINAL 
 
 
 

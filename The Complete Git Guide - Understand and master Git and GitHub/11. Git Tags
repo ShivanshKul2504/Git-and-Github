@@ -1,0 +1,160 @@
+SECTION - 11 
+
+GIT TAGS 
+
+- > Git tag is the static text pointer to a specific commit.
+
+- > Tags can be created in any project at any point of time.
+
+- > Git tags are used to add release versions of a project.
+
+
+
+
+STAGING VS PRODUCTION 
+
+The work here happens on the basis of CI/CD Continuos Integration and Development.
+
+
+STAGING 
+
+- primarily for testing
+- Usually for internal use
+- Merging is performed frequently 
+- Different feature branches are merged into release branch
+- Multiple people ma have merge rights
+
+
+PRODUCTION 
+
+- for stable production service
+- for customers
+- merging happens each 2 weeks or 1 month
+- Usually only release branch is merged into master branches
+- only few people have merge rights 
+
+
+
+SEMANTIC VERSIONING 
+
+- > It is the common approach to number every release of a software.
+
+v5.1.3
+
+- > 5 is major version, 1 is minor version, 3 is patch version.
+
+- > It is highly not recommended to automatically install major updates of the packages you software depends on.
+
+
+WHY USE SEMANTIC VERSIONING ?
+
+
+
+DIFFERENCE BETWEEN LIGHTWEIGHT AND ANNOATED TAGS
+
+Lighweight 
+
+- git tag v1.0.0
+- it is stored in the .git/refs/tags 
+
+
+Annotated 
+
+- git tag -a v1.0.0 -m "New tag"
+- It is stored in the .git/refs/tags
+- It is also stored in the .git/objects 
+- Stores tag message 
+- Stores tag author and date 
+
+
+- > It is recommended to use Annotated tags instead of lightweight tags.
+
+- > Tag names must be unique around the whole repository.
+
+
+CREATING LIGHTWEIGHT TAGS
+
+ git tag v1.0.0
+
+????????????????????????????
+
+- > git tag 
+    - > It is used to see all the tags in the repository.
+
+        git tag v1.0.0
+        git show v1.0.9
+
+- > Git tags are not pushed to remote with "git push" command.
+
+
+
+- > git tag v1.0.0 -m "New tag" is used to create a new annotated tag
+
+
+tag v1.0.0
+Tagger: John Doe <john@example.com>
+Date:   Mon Mar 28 11:47:42 2022 -0700
+
+Release version 1.0.0
+
+This release includes the following changes:
+- Added new feature X
+- Fixed issue Y
+- Improved performance of Z
+
+commit 45cda7583a3a8c47f6d5031f9e9f3c3c2dabc4d2
+Author: John Doe <john@example.com>
+Date:   Wed Mar 16 14:19:36 2022 -0700
+
+    Added new feature X
+
+commit 5f5c5e8740d5a5ef9f5b291ebe8d48a857a156f2
+Author: Jane Smith <jane@example.com>
+Date:   Fri Mar 25 09:35:41 2022 -0700
+
+    Fixed issue Y
+
+commit 8b1c703b15063bd4619ac376e891f8c1e2121c1c
+Author: Bob Johnson <bob@example.com>
+Date:   Sat Mar 26 16:12:07 2022 -0700
+
+    Improved performance of Z
+
+
+PUSHING TAGS TO REMOTE 
+
+git push --tags
+    - > This command is used to push the tags into the repository.
+    git push -v --tags 
+
+
+To push only a single to the repository : 
+    git tag -a v1.0.1 -m "Patch for v1.0.0"
+
+    git push -v v1.0.1 
+    - > This tag will be successfully pushed to the server.
+
+- > When we are pushing tags, commits are not pushed. We need to user 'git push' to push commits to remote.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

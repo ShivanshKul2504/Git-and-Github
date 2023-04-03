@@ -1,0 +1,72 @@
+SECTION - 7
+
+MERGING BRANCHES 
+
+
+- > Each branch developed in the code is used for a specific feature.
+- > When specific feature is completely developed, we merge the feature branch to the release branch.
+
+
+
+WHY BRANCHES MERGING IS NEEDED ? 
+
+Merging branches in GitHub is a crucial process in the development of software projects that involve multiple developers. Here are four reasons why merging branches is necessary:
+    1. Collaboration: When multiple developers are working on a project, they usually work on different branches to isolate their changes. Once they have completed their work, they need to merge their changes back into the main branch so that everyone can access the latest code. This ensures that all developers are working on the same codebase, which makes it easier to collaborate.
+
+    2. Continuous Integration: In many software development workflows, teams use continuous integration to ensure that changes are integrated and tested quickly. This means that each time a developer pushes changes to a branch, they need to merge it back to the main branch to trigger an automatic build and test process.
+
+    3. Code Review: Merging branches is also essential for code review. Before merging changes into the main branch, developers typically perform a code review to ensure that the changes meet the project's standards and do not introduce any new bugs. This process ensures that the code is of high quality and is ready to be used by other developers.
+
+    4. Version Control: Merging branches is an essential part of version control. When developers work on different branches, they create multiple versions of the codebase. Merging these branches ensures that all the changes are correctly integrated, and the project's version history is accurately recorded. This helps to keep track of changes, revert to previous versions if necessary, and maintain a clean and organized codebase.
+
+
+
+FAST FORWARD MERGE 
+
+- > We need to merge branches when we need to incorporate the changes which are made in one branch into another branch.
+
+- > Fast forwar merge is possible when there are no further commits in the receiving branch after the commit where feature branch was created.
+- > Fast forwar merge just moves the branch head from one commit to another branch commit.
+
+
+MERGING PROCESS 
+
+1. Create new feature branch from the main branch.
+2. Make changes in the new branch and commit them.
+3. Checkout main branch (receiving branch).
+4. Merge feature branch to the current receiving branch.
+
+    git merge <feature-branch>
+
+
+git merge BR-1
+Updating adls1231...24242b34
+- > Before merging the master branch was pointing to the first SHA1 hash , after merging the master branch is pointing to the next SHA1 hash.
+
+
+
+3 - WAY MERGE 
+
+- > For this process git tries to find the first nearest commit.
+- > This commit is known as the ancestor .
+
+///////////////////////////////////////////
+REDO
+///////////////////////////////////////////
+
+
+SOURCETREE
+
+////////////////////
+REDO
+///////////////////
+
+
+MERGE CONFLICTS 
+
+- > These occur when their are changes in the master branch as well as in the feature branch in the same file or peice of code.
+- > Merge conflicts don't appear in fast forward merge.
+
+/////////////////////////////////
+REDO HERE 
+////////////////////////////////

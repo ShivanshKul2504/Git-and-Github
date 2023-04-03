@@ -46,5 +46,24 @@ Option - 2
 2. Delete file only from repository keeping it in the working directory using command "git rm --cached <file name>"
 
 
+- > After "git rm ==cached <file name> command git has automatically added changes to staging area and I have just commited only this change.
+- > But I did not add to staging area changes in .gitignore file. Thats why I need to commit it again.
+
+
+GIT IGNORE COMMON PRACTICES AND TEMPLATES 
+
+- > build folders like bin/
+- > dependency folders like node_modules/
+- > Compiled and log files like *.pyc, *.log 
+- > Hidden OS files like Thumbs.db or .DS_store
+
+(gititgnore.io is a good website which is used for genrating .gitignore files for various OS,IDE and programming languages.)
+
+
+
+
+
+
+
 
 

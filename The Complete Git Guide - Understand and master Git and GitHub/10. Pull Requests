@@ -109,9 +109,120 @@ CREATING AND MERGING PULL REQUEST
 10. Update your forked repository: After your pull request has been merged, you should update your forked repository to reflect the changes made in the original repository. You can do this by pulling the changes from the original repository into your local repository and then pushing them to your forked repository.
 
 
+ADDING A COLLABORATOR TO GITHUB 
+
+To add a new collaborator to a GitHub repository, you can follow these steps:
+
+1. Navigate to the repository on GitHub and click on the "Settings" tab.
+
+2. Click on "Collaborators" in the left-hand sidebar.
+
+3. Type the username or email address of the person you want to add as a collaborator in the "Add collaborators" field.
+
+4. Click the "Add collaborator" button.
+
+5. If the collaborator is a GitHub user, they will receive an email notification with an invitation to collaborate on the repository. If the collaborator is not a GitHub user, they will receive an email invitation to sign up for GitHub and collaborate on the repository.
+
+6. Once the collaborator accepts the invitation, they will be added as a collaborator to the repository and will have permission to push code changes to the repository.
+
+Note: Collaborators can be added to a repository if you have administrative access to the repository. If you don't have administrative access, you can request the repository owner to add a collaborator for you.
+
+
+- > By default github allows you to merge pull requests even without reviews and approvals.
+- > But it is possible to require certain quantity of approvals before merging will be allowed.
+
+- > We can set the master branch as protected branch and deny merging into the default branch without approvals.
+
+
+FORK REPOSITORIES
+
+A fork in GitHub is a copy of a repository that is created in a user's account. 
+Forking a repository allows users to make changes to the code without affecting the original repository.
+Forking is useful for contributing to open-source projects, experimenting with code changes, and creating personal copies of repositories.
+
+To create a fork in GitHub, follow these steps:
+
+1. Navigate to the repository you want to fork on GitHub.
+
+2. Click on the "Fork" button on the top-right corner of the screen.
+
+3. Select the account where you want to fork the repository. If you have multiple accounts, make sure you choose the correct one.
+
+4. Wait for GitHub to create the fork. Once the process is complete, you will be redirected to your own copy of the repository.
+
+5. You can now make changes to the code in your forked repository without affecting the original repository.
+
+6. If you want to contribute your changes back to the original repository, you can create a pull request. To do this, make your changes in a new branch in your forked repository, then open a pull request to merge your changes into the original repository.
+
+    By creating a fork in GitHub, you can contribute to open-source projects, experiment with code changes, and create your own personal copies of repositories.
 
 
 
+SYNCHRONIZE FORKED REPOSITORY WITH ORIGINAL REPOSITORY 
+
+To synchronize changes from a forked repository with the original repository, you will need to follow these steps:
+
+1. First, ensure that you have a local copy of both the forked repository and the original repository.
+
+2. Open your terminal and navigate to your local copy of the forked repository.
+
+3. Add the original repository as a remote by typing the following command:
+
+    git remote add upstream <original_repository_url>
+
+4. Fetch the latest changes from the original repository by typing:
+
+    git fetch upstream
+
+5. Switch to the master branch of your forked repository by typing:
+
+    git checkout master
+
+6. Merge the changes from the original repository into your forked repository by typing:
+
+    git merge upstream/master
+
+7. If there are any merge conflicts, resolve them by editing the affected files.
+
+8. Finally, push the changes to your forked repository by typing:
+
+    git push origin master
+
+    Your forked repository should now be synchronized with the latest changes from the original repository.
+
+
+
+OPEN A PULL REQUEST FROM A FORKED REPOSITORY
+
+
+Step-by-step guide on how to open a pull request from a forked repository:
+
+1. Fork the original repository: Navigate to the repository you want to contribute to and click on the "Fork" button in the upper right-hand corner of the page. This creates a copy of the repository in your own GitHub account.
+
+2. Clone the forked repository: Clone the forked repository to your local machine using the following command in your terminal or Git Bash:
+
+    git clone https://github.com/your-username/forked-repository.git
+
+    Replace your-username with your GitHub username and forked-repository with the name of the repository you just forked.
+
+3. Create a new branch: Create a new branch to work on using the following command:
+
+    git checkout -b new-branch-name
+    Replace new-branch-name with a descriptive name for your branch.
+
+4. Make your changes: Make the necessary changes to the codebase.
+
+5. Commit your changes: Once you've made your changes, commit them to your local repository using the following command:
+    git add .
+    git commit -m "A descriptive commit message"
+6. Push your changes: Push your changes to your forked repository on GitHub using the following command:
+
+    git push origin new-branch-name
+    Replace new-branch-name with the name of the branch you just created.
+
+7. Open a pull request: Navigate to your forked repository on GitHub and click on the "New pull request" button. Select the branch you just created as the "head branch" and the original repository as the "base branch". Give your pull request a descriptive title and description, and click "Create pull request".
+
+8. Wait for the review: Your pull request is now open, and the maintainers of the original repository will review your changes. They may request changes or ask for more information before merging your changes into the original repository.
 
 
 

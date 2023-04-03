@@ -21,6 +21,8 @@ Git pull
 
 - > 
 
+- > Git pull consists of git fetch and git merge
+
 Example of pull : 
 1. clone remote repo
 2. checkout 'master' branch locally
@@ -74,6 +76,50 @@ Git remote show origin
 
 - > git remote show origin 
     - > Fetch url, Push url, Head, remote , local, local refs will be shown after running this command.
+
+
+Pruning, Pruning a Branch ?
+
+
+
+GIT PULL IS A 2 STEP PROCESS 
+
+- > It merges remote branch into current branch.
+
+Step - 1 : git fetches all the updates into our repository.
+Step - 2 : git merge FETCH_HEAD 
+
+
+- > After fetching local it merges remote brnach into local tracking branch using either fast forward merge or 3 - Way merge
+
+- > Git pull updates only single local currently checked out branch.
+
+
+HOW TO PERFORM GIT PULL 
+
+1. Checkout local branch and make sure it is tracking brnach and has corresponding remote branch.
+    Use git branch -vv for check
+2. Enter git pull 
+3. Git will fetch all changes from remote repository - git fetch is executed in background.
+4. After fetching git updates FETCH_HEAD file that contains SHA1 hashes of last commits in remote repository for all tracking branches .
+5. Git merges remote branch into current branch git merge FETCH_HEAD.
+
+
+WHAT IS FETCH_HEAD  ?
+
+- > ??????????
+
+During Git pull git will first execute "git fetch" 
+After fetching it will update .git/FETCH_HEAD list and first branch in this list will be currently checked out branch.
+
+Finally git executes "git merge FETCH_HEAD" command that finds first brnahc in .git/FETCH_HEAD list without "not-for-merge" tag and merges it into local tracking currenlty checked out branch.
+
+
+
+
+
+
+
 
 
 

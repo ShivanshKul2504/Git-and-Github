@@ -1,0 +1,30 @@
+SECTION - 14
+
+DETACHED HEAD 
+
+- > Commits made in detached HEad state will be garbage collected.
+
+git checkout <SHA1> 
+    - > The HEAD now points to a specific commit.
+
+
+- > By default, unreachable Git Objects are garbage collected after 30 days.
+- > If one is happy with the commits made in the detached head state - keep them by creation of the new branch using command 
+    - > git checkout -b <branch name>
+    
+
+WHAT IS DETACHED HEAD ?
+ADVANTAGES AND DISADVATAGES OF DETACHED HEAD
+APPLICATIONS OF DETACHED HEAD IN REAL LIFE
+
+
+
+
+
+
+
+
+
+
+
+

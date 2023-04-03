@@ -226,3 +226,21 @@ Step-by-step guide on how to open a pull request from a forked repository:
 
 
 
+
+REMOVING A REPOSITORY COLLABORATOR 
+
+Here are the steps to remove a collaborator from a GitHub repository:
+
+1. Open the repository: Navigate to the repository you want to remove the collaborator from.
+
+2. Click on "Settings": You can find the "Settings" button at the top right-hand corner of the repository page.
+
+3. Click on "Collaborators & Teams": This is located in the left-hand menu of the "Settings" page.
+
+4. Locate the collaborator: Scroll down the "Collaborators & Teams" page until you find the collaborator you want to remove.
+
+5. Click on the "Remove" button: Next to the collaborator's name, you will see a red "Remove" button. Click on this button.
+
+6. Confirm the removal: You will see a confirmation window asking you to confirm the removal of the collaborator. Review the information and click on the "Remove" button to confirm.
+
+7. Notify the collaborator (optional): You can optionally notify the collaborator that they have been removed by sending them a message or email to inform them of the change.

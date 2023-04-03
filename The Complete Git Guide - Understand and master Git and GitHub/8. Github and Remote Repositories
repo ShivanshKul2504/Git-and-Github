@@ -1,0 +1,68 @@
+SECTION - 8
+
+GITHUB AND REMOTE REPOSITORY 
+
+other git repositories 
+gitlab,gitbucket
+
+readme.md file
+
+issues ?
+security ?
+
+
+Note : 
+
+"tree" in the github url doe not represent the git tree object. instead it is just pointer to specific branch or commit.
+
+
+
+CLONING A REMOTE REPOSITORY
+
+-> copy the url
+
+- > git clone <git-clone-url>
+    This is used to clone the repository.
+
+
+WHAT IS REMOTE REPOSITORY
+
+- > Remote repository is the same as the local repository in terms of structure.
+- > Remote repository does not get updated automatically , if we make changes in the local repository.
+
+
+- > Git GUI applications like github dekstop, sourcetree or vscode may fetch updates from the remote repository in background but you need to pull them manually.
+
+
+HOW REMOTE REPOSITORIES EMPOWER COLLABORATION 
+
+- > All the communication between the various local repositories happends with the help of remote repositories.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+github default branch is main.
+
+cloning a remote repo
+
+what is a remote repo
+
+how remote repository empowers collaboration ?
+
+
+
+
+
+

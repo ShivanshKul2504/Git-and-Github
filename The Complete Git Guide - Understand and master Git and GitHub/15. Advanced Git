@@ -1,0 +1,78 @@
+SECTION - 15
+
+ADVANCED GIT 
+
+- > If git lg command is not available, you should create an alias to make it work
+
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
+
+
+git log options 
+oneline
+graph 
+stat
+
+git shortlog example and definition
+
+
+Filtering commits by author or keyword 
+
+git log --author = "AchillesJ" --oneline
+    - > This field is a regex field .
+
+    git log --grep = "3.12.3"
+    - > This command is used to search any keyword 
+
+
+git log --pretty=format:"%H"
+- > find changes to this commands and their usecases.
+
+
+Filtering out merge commits in git log 
+
+--merges 
+--nomerges
+
+
+GIT RESET 
+
+
+GIT REVERT 
+
+
+MODIFYING THE LAST COMMIT USING AMEND OPTION 
+
+
+CHERRY PICK OPERATION IN GIT 
+
+
+
+REFLOG - LOG OF ALL GIT OPERATIONS 
+
+STASHING THE CHANGES USING THE TERMINAL 
+
+
+GARBAGE COLLECTION IN GIT
+
+
+SQUASHING OF COMMITS AT GITHUB
+
+
+INTERACTIVE REBASING WITH SQUASHING IN THE LOCAL repository
+
+GIT DEVELOPMENT WORKFLOW
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

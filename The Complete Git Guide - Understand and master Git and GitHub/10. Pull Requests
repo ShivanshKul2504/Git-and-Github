@@ -1,0 +1,117 @@
+SECTION - 10 
+
+PULL REQUEST 
+
+Defintion :- 
+
+Collaboration :- 
+
+
+- > We need some tool that can be used to review the code of various developers working together on a single project.
+- > Other collaboraters should have the ability to review the changes made by one another in their own branches.
+
+
+WHAT IS PULL REQUEST ?
+
+- > Pull request is a proposal of potential changes.
+- >  The main idea behind git was the collaboration of multiple people on the same project.
+
+
+PULL REQUEST STEP BY STEP : 
+
+1. Fork the repository: First, navigate to the repository you want to contribute to and click on the "Fork" button in the top right corner of the page. This will create a copy of the repository in your GitHub account.
+
+2. Clone the repository: Once you have forked the repository, clone it to your local machine using Git. You can do this by running the following command in your terminal:
+    
+    git clone https://github.com/your-username/repository-name.git
+
+3. Create a new branch: Next, create a new branch to make your changes in. You can do this by running the following command:
+
+    git checkout -b new-branch-name
+
+4. Make your changes: Now that you have created a new branch, make the necessary changes to the code. Be sure to test your changes to make sure they work as expected.
+
+5. Commit your changes: Once you are happy with your changes, commit them to your local branch using the following command:
+
+    git add .
+    git commit -m "A brief description of your changes"
+
+6. Push your changes: After committing your changes, push them to your forked repository using the following command:
+
+    git push origin new-branch-name
+
+7. Create a pull request: Now that your changes are in your forked repository, it's time to create a pull request to merge them into the original repository. To do this, go to the original repository on GitHub and click on the "Pull requests" tab. Then click the "New pull request" button.
+
+8. Review your changes: GitHub will show you a comparison of the changes you made in your branch compared to the original repository. Review the changes to make sure they are what you intended.
+
+9. Submit the pull request: Once you are satisfied with your changes, submit the pull request by clicking the "Create pull request" button.
+
+10. Discuss and Merge: After you create the pull request, you can discuss it with the maintainers and other contributors. If everything looks good, the maintainers will merge your changes into the main branch of the repository.
+
+    That's it! Your changes have been successfully merged into the repository.
+
+
+
+CHANGING THE AUTHOR OF THE LAST COMMIT 
+
+- > git config user.name "Shivansh Kulshrestha"
+
+- > git config user.email "shivansh@gmail.com"
+
+git commit --amend --author = "Shivansh Kulshrestha <shivansh@gmail.com>"
+    
+    - > This will be used to modify the author of the last commit.
+
+
+
+PUSHING BRANCH TO REMOTE
+
+
+- > git push -u origin <branch-name>
+
+
+OPEN PULL REQUEST 
+
+1. switch to new branch
+2. open 'new pull request'
+3. click the branch
+4. compare new branch to default branch 
+
+
+- > Always create meningful description of the pull request that shortly describes what was implemented in the new feature.
+
+- > Anyone can open a public repos pull requests(opened) and mark a review on them.
+- > Only the owner of the repository and the people who have the write access can merge the pull requests.
+
+
+
+CREATING AND MERGING PULL REQUEST
+
+
+1. Fork the repository: If you want to contribute to a project hosted on GitHub, you need to create a fork of the repository. This creates a copy of the repository under your own account, which you can freely modify without affecting the original repository.
+
+2. Clone the forked repository: Once you have created a fork of the repository, you need to clone it to your local machine using git. This will create a local copy of the repository that you can work on.
+
+3. Create a new branch: Before you start making changes to the code, you should create a new branch. This allows you to work on your changes independently of the main branch, and makes it easier to keep track of your changes.
+
+4. Make your changes: Once you have created a new branch, you can start making changes to the code. You can use any code editor or IDE to make these changes.
+
+5. Commit your changes: After you have made your changes, you need to commit them to your local repository. This creates a snapshot of your changes, which you can revert to if necessary.
+
+6. Push your changes: Once you have committed your changes, you need to push them to your forked repository. This makes your changes available to others who might want to review them.
+
+7. Create a pull request: After you have pushed your changes to your forked repository, you need to create a pull request. This notifies the original repository's maintainers that you have made changes and would like them to be merged into the main branch. You can create a pull request by navigating to the original repository on GitHub, clicking on the "Pull requests" tab, and then clicking on the "New pull request" button.
+
+8. Review and discuss changes: Once you have created a pull request, others can review your changes and provide feedback. You can also discuss any issues or concerns that arise during the review process.
+
+9. Merge the pull request: If the maintainers of the original repository are satisfied with your changes, they can merge your pull request into the main branch. This incorporates your changes into the main codebase, making them available to all users of the repository.
+
+10. Update your forked repository: After your pull request has been merged, you should update your forked repository to reflect the changes made in the original repository. You can do this by pulling the changes from the original repository into your local repository and then pushing them to your forked repository.
+
+
+
+
+
+
+
+

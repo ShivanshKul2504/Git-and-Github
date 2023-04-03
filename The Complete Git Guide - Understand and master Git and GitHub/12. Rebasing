@@ -1,0 +1,23 @@
+SECTION - 12 
+
+REBASING
+ 
+ - > it rewrites the history.
+ - > History becomes linear
+ - > Doesn't keep entire history of all the commits.
+
+
+Rebasing in Git is the process of moving a branch to a new base commit. This means that instead of merging changes from one branch to another, as in a regular merge, the changes are moved to a new base commit, resulting in a cleaner and more linear Git history.
+
+Advantages of Rebasing:
+
+    1. Cleaner Git history: Rebasing can create a cleaner Git history by avoiding unnecessary merge commits.
+    2. Easier to understand history: The linear history created by rebasing can be easier to understand and follow.
+    3. Prevents merge conflicts: Rebasing can help prevent merge conflicts by applying changes on top of a clean commit history.
+    4. Helps with code review: A clean Git history can make code review easier, as it allows for a clearer understanding of the changes being made.
+
+Disadvantages of Rebasing:
+
+    1. History modification: Rebasing changes the Git history, which can make it difficult to identify when certain changes were made.
+    2. Potential loss of work: Rebasing can potentially lead to the loss of work if not done correctly or if there are conflicts that are not resolved properly.
+    3. Can be confusing for team members: Rebasing can be confusing for team members who are not familiar with the process, as it can change the state of branches in ways that are not immediately obvious.

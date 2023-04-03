@@ -1,0 +1,50 @@
+SECTION - 13
+
+GIT IGNORE FILES 
+
+- explicitly tells git which files and folders to ignore 
+- Changes in ignored files and folders are ignored 
+- Rules are defined in the separate file .gitignore
+- .gitignore file itself must be committed..
+
+
+
+- > By default, git ignore is not configured.
+- > Usually, .gitignore is located in the root of the repository.
+- > Usually, .gitignore file is created after repository initialization.
+
+
+.gitignore file rules examples  :
+
+- > Inside the .gitignore file : 
+
+    # Ignore single file
+    new-file.txt 
+
+    # Ignore all files in the bin directory.
+    bin/ 
+
+    # Ignoring all .tmp files 
+    *.tmp 
+
+
+Ignoring Previously Committed file 
+
+Option - 1 
+
+1. Add ignore rule to .gitignore
+2. Delete file in working directory
+3. Commit Changes 
+4. Add again previously deleted file.
+
+- > If you want to keep in working directory previously committed file it is not convenient to delete it first, commit deletion and after that add file again.
+
+
+Option - 2
+
+1. Add ignore rule .gitignore 
+2. Delete file only from repository keeping it in the working directory using command "git rm --cached <file name>"
+
+
+
+

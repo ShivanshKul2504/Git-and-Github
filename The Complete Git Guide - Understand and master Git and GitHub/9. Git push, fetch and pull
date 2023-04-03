@@ -1,0 +1,80 @@
+SECTION - 9
+
+GIT PUSH , FETCH AND PULL 
+
+
+Git push 
+
+- > Push to remote repository only fully tested and verified features.
+
+
+
+Git fetch 
+
+    Lets suppose that new branch was created in the remote repository.
+    After "git fetch" same branch will be created in your local git repository because branch is just text file in the .git/refs/heads.
+
+
+
+
+Git pull 
+
+- > 
+
+Example of pull : 
+1. clone remote repo
+2. checkout 'master' branch locally
+3. Make changes and commit them in "master" branch in remotre repository.
+4. After "git pull " locally git will fetch remote changes.
+5. After fetching git will merge remote "master" branch into local "master" branch (fast forward or 3-way merge)
+6. Staging area (index) and working directory will be automatically updated after merge.
+
+
+
+WHAT IS ORIGIN ? 
+
+- > The default name of our repository is the 'origin'
+- > By default all the operations are performed from the 'origin' repository.
+
+git remote
+    - > List all the remote servers for your local repositories with server.
+
+-  > By default after cloning git will not create corresponding local for all remote branches except default remote branch.
+
+
+LIST REMOTE AND LOCAL BRANCHES 
+
+- > git branch - a 
+    - > This command is used to list all the remote branches and local branches 
+
+- > git branch -r 
+    - > This command is used to list all the remote branches only.
+
+- > git branch 
+    - > This command is used to list all the local branches.
+
+
+TRACKING BRANCH 
+
+- > It is a local branch that is connected to the specific remote branch.
+
+- > After cloning of any remote repository git will create only one local branch with the same name as default branch in the remote repository.
+
+git branch -vv 
+    - > This command is used to see all the remote braches and local branches and will tell which branch is the tracking branch.
+
+
+CHECKOUT REMOTE BRANCH 
+
+??? 
+
+
+
+Git remote show origin 
+
+- > git remote show origin 
+    - > Fetch url, Push url, Head, remote , local, local refs will be shown after running this command.
+
+
+
+

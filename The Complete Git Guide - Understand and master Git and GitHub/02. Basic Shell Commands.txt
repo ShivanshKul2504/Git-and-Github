@@ -16,19 +16,17 @@ The mkdir command is used in Unix-based systems to create a new directory or fol
 
 The syntax for using the mkdir command is as follows:
 
-    mkdir [options] directory_name
+    mkdir [options] 'directory_name'
 
-Here, directory_name is the name of the directory you want to create. 
+Here, 'directory_name' is the 'name' of the directory you want to create. 
+
 You can also specify additional options, such as -p to create parent directories if they don't already exist.
-
     For example, the following command will create a new directory called "my_folder" in the current directory:
 
         mkdir my_folder
 
-
 If you want to create a directory and all of its parent directories if they don't already exist, you can use the -p option. 
-    
-    For example, the following command will create a new directory called "parent_folder" and a subdirectory called "child_folder" within it:
+For example, the following command will create a new directory called "parent_folder" and a subdirectory called "child_folder" within it:
 
     mkdir -p parent_folder/child_folder
 
@@ -39,9 +37,7 @@ separated by spaces.
 For example:
     mkdir folder1 folder2 folder3
 
-This will create three new directories called "folder1", "folder2", and "folder3" in the current directory.
-
-
+- > This will create three new directories called "folder1", "folder2", and "folder3" in the current directory.
 
 
 
@@ -73,7 +69,7 @@ The syntax for using the ls command is as follows:
 
     ls [options] [directory]
 
-Here, directory is the name of the directory you want to list files and directories from. 
+Here, 'directory' is the name of the 'directory' you want to list files and directories from. 
 If no directory is specified, the ls command will list the files and directories in the current directory.
 
 You can also specify additional options to customize the output of the ls command. Some common options include:
@@ -147,28 +143,33 @@ touch Command
     Example : 
     touch new-file.txt
 
-The touch command is a command-line tool used to create new empty files or update the modification and access times of existing files. The touch command is available on Unix-based systems, including Linux and macOS, as well as Windows operating systems that have the Windows Subsystem for Linux (WSL) installed.
+The touch command is a command-line tool used to create new empty files or update the modification and access times of existing files. 
+The touch command is available on Unix-based systems, including Linux and macOS, 
+as well as Windows operating systems that have the Windows Subsystem for Linux (WSL) installed.
 
 The syntax for using the touch command is as follows:
 
-touch [options] [filename(s)]
+    touch [options] [filename(s)]
 
-Here, options are any command-line options that modify the behavior of the touch command, and filename(s) are one or more filenames that you want to create or modify. If the file already exists, touch will update the modification and access times of the file. If the file does not exist, touch will create an empty file with the specified filename.
+Here, options are any command-line options that modify the behavior of the touch command, 
+ and filename(s) are one or more filenames that you want to create or modify. If the file already exists,
+ touch will update the modification and access times of the file. 
+ If the file does not exist, touch will create an empty file with the specified filename.
 
 Some common options for the touch command include:
 
--a: Only update the access time of the file, not the modification time.
--c: Do not create a new file if the file does not exist.
--d: Use a specific date and time instead of the current time.
--r: Use the modification and access times of an existing file instead of the current time.
+    -a: Only update the access time of the file, not the modification time.
+    -c: Do not create a new file if the file does not exist.
+    -d: Use a specific date and time instead of the current time.
+    -r: Use the modification and access times of an existing file instead of the current time.
 
 For example, to create a new file called myfile.txt in the current directory, you can use the following command:
 
-touch myfile.txt
+    touch myfile.txt
 
 To update the modification time of an existing file called mydata.csv, you can use the following command:
 
-touch mydata.csv
+    touch mydata.csv
 
 Overall, the touch command is a simple but useful tool for creating new files or updating the timestamps of existing files in a command-line environment.
 
@@ -337,7 +338,10 @@ To view the manual page for a command, simply type man followed by the command n
 
 This will display the manual page for the ls command, which is used to list the files and directories in a particular directory.
 
-The man command is an essential tool for Unix-based systems, as it provides a comprehensive reference for using the various commands and utilities that are available. By familiarizing yourself with the manual pages, you can gain a deeper understanding of how the system works and how to use its features more effectively.
+The man command is an essential tool for Unix-based systems, 
+as it provides a comprehensive reference for using the various commands and utilities that are available. 
+By familiarizing yourself with the manual pages, 
+you can gain a deeper understanding of how the system works and how to use its features more effectively.
 
 
 

@@ -1,0 +1,416 @@
+SECTION - 17
+
+GIT HOOKS 
+
+
+Git hooks are scripts that Git can execute automatically at certain points in the Git workflow. They allow developers to customize and automate various aspects of the Git workflow, such as enforcing code quality standards, running tests, and preventing certain types of commits.
+
+Git hooks are stored in the .git/hooks directory of a Git repository. There are two types of Git hooks: client-side hooks and server-side hooks.
+
+Client-side hooks run on the local machine of each developer who works on the repository. They can be used to enforce coding standards, ensure that tests pass before allowing a commit, and prevent certain types of commits (such as those with empty commit messages).
+
+Server-side hooks run on the Git server and can be used to enforce policy across a team or organization. For example, server-side hooks can be used to prevent force pushes or to enforce certain commit message formats.
+
+Git comes with a number of built-in hooks, such as pre-commit, pre-push, and post-merge. Developers can also create their own custom hooks to fit their specific needs.
+
+In summary, Git hooks allow developers to automate and customize various aspects of the Git workflow, improving code quality and ensuring consistency across a team or organization.
+
+
+
+
+
+
+
+
+NORMAL GIT WORKFLOW WITHOUT HOOKS
+
+
+The normal GitHub workflow without hooks typically involves the following steps:
+
+1. Create a new branch: When a developer wants to add a new feature or fix a bug, they typically create a new branch from the main branch (often called master or main).
+
+2. Make changes and commit: The developer makes the necessary changes to the codebase and commits them to the local branch.
+
+3. Push changes to GitHub: Once the developer has made their changes and committed them locally, they push the changes to the remote repository on GitHub.
+
+4. Open a pull request: Once the changes are pushed to GitHub, the developer opens a pull request (PR) to merge their changes into the main branch.
+
+5. Review and merge: Other developers on the team review the code changes and provide feedback. Once the changes have been reviewed and approved, they are merged into the main branch.
+
+6. Deploy: Once the changes are merged into the main branch, they can be deployed to a production environment.
+
+    This workflow can be repeated as often as necessary to add new features or fix bugs. It is important to note that this workflow does not include the use of Git hooks, which can be used to automate certain aspects of the workflow, such as running tests or enforcing code quality standards.
+
+
+
+
+
+HOW GIT HOOKS COULD BE USED ON PRACTICE
+
+Let's say you have a project that uses a linter to enforce code quality standards, and you want to make sure that every commit to the repository passes the linter before it is allowed to be pushed. You can create a pre-commit hook that runs the linter on the code changes made in the commit, and prevents the commit if the linter finds any errors or warnings.
+
+Here's an example of what the pre-commit hook script might look like:
+
+    #!/bin/bash
+
+    # Run linter on code changes
+    lint_errors=$(linter command)
+
+    # If there are errors or warnings, prevent the commit and display the errors
+    if [[ $lint_errors ]]; then
+    echo "Error: Code does not pass linter"
+    echo "$lint_errors"
+    exit 1
+    fi
+
+    # If there are no errors or warnings, allow the commit to proceed
+    exit 0
+
+When a developer tries to commit changes to the repository, the pre-commit hook will automatically run and check the code changes for linting errors. If there are errors or warnings, the commit will be prevented and the developer will be notified of the issue. If there are no errors or warnings, the commit will be allowed to proceed as normal.
+
+
+
+
+USING PRE-COMMIT HOOK 
+
+A pre-commit hook is a script that runs automatically before a Git commit is completed. It allows you to enforce coding standards, run tests, or perform any other checks or validations that you want to ensure that the code changes being committed meet certain standards.
+
+The pre-commit hook script is located in the .git/hooks/ directory of your Git repository. When a developer runs the git commit command, Git automatically runs the pre-commit hook script before creating the commit. If the script exits with a non-zero status code, Git cancels the commit and displays an error message.
+
+Here are some examples of tasks that you can perform with a pre-commit hook:
+
+1.  Check for syntax errors or coding style violations in the code
+2. Run automated tests to ensure that the code changes don't break existing functionality
+3. Check for the presence of security vulnerabilities or other potential issues
+4. Ensure that the commit message follows a certain format or contains specific information
+
+Pre-commit hooks can help you catch issues early in the development process, before the code changes are committed and potentially cause issues downstream. They can also help ensure that all code changes follow the same standards and best practices.
+
+It's important to note that pre-commit hooks only run on the developer's local machine, and not on the Git server. This means that pre-commit hooks cannot prevent someone from committing code that doesn't meet the requirements, but they can serve as a helpful reminder or warning to the developer.
+
+
+Sure, here's an example of a pre-commit hook that prevents a commit if there are any files with trailing whitespace:
+
+    #!/bin/sh
+
+    # Check for files with trailing whitespace
+    if git diff --check --cached | grep -q "trailing whitespace"; then
+        echo "Error: trailing whitespace detected. Please remove before committing."
+        exit 1
+    fi
+
+    # If there are no issues, allow the commit to proceed
+    exit 0
+
+This script checks for trailing whitespace in any files that have been staged for commit (--cached flag). If any files with trailing whitespace are found, the script outputs an error message and prevents the commit (exit 1). If there are no files with trailing whitespace, the script allows the commit to proceed (exit 0).
+
+
+
+
+ENABLING POST-COMMIT HOOK 
+
+Post Commit Hook : 
+
+The post-commit hook script is located in the .git/hooks/ directory of your Git repository. When a developer runs the git commit command and the commit is successfully created, Git automatically runs the post-commit hook script.
+
+Here are some examples of tasks that you can perform with a post-commit hook:
+
+1. Send notifications to team members or other systems, such as Slack, email, or JIRA
+2. Trigger builds and deployments of your application or website
+3. Update documentation, such as README files or user guides
+4. Run reports or perform data analysis on the code changes
+5. Archive or backup the commit for future reference or auditing
+
+Post-commit hooks can be helpful for automating tasks that need to be performed after each commit. This can help streamline your development workflow and ensure that all necessary tasks are completed in a timely and consistent manner.
+
+It's important to note that post-commit hooks only run on the developer's local machine, and not on the Git server. This means that post-commit hooks cannot trigger actions that require access to the Git server or the remote repository.
+
+
+To enable a post-commit hook, you need to create a script in the .git/hooks/ directory of your Git repository, named post-commit, and make it executable. Here are the steps to create a post-commit hook:
+
+Navigate to the root directory of your Git repository.
+Create a new file named post-commit in the .git/hooks/ directory. You can use the touch command to create an empty file, like this: touch .git/hooks/post-commit.
+Make the script executable by running the command: chmod +x .git/hooks/post-commit
+Add your post-commit hook code to the post-commit file.
+Here's an example of a simple post-commit hook that sends a notification message when a commit is made:
+
+
+    #!/bin/sh
+
+    # Send a notification message
+    echo "Commit successful. Sending notification message..."
+
+    # Call a notification script (replace this with your own notification code)
+    /path/to/notification-script.sh
+
+    Keep in mind that post-commit hooks run after the commit has already been made, so they cannot prevent or modify the commit itself. However, they can be a useful way to automate post-commit tasks and improve the efficiency of your Git workflow.
+
+
+DISABLING REBASING USING PRE-REBASE HOOK
+
+Steps : 
+
+To disable rebasing using a pre-rebase hook, you can add a script to the .git/hooks/ directory of your Git repository that exits with a non-zero status code if a rebase is detected. Here are the steps to create a pre-rebase hook that disables rebasing:
+
+1. Navigate to the root directory of your Git repository.
+2. Create a new file named pre-rebase in the .git/hooks/ directory. You can use the touch command to create an empty file, like this: touch .git/hooks/pre-rebase.
+3. Make the script executable by running the command: chmod +x .git/hooks/pre-rebase
+4. Add the following code to the pre-rebase file:
+
+    #!/bin/sh
+
+    # Check if a rebase is in progress
+    if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]
+    then
+    echo "Rebasing is disabled for this repository."
+    exit 1
+    fi
+
+This script checks if a rebase is in progress by looking for the presence of the .git/rebase-merge or .git/rebase-apply directories. If either of these directories exist, the script exits with a non-zero status code and displays a message indicating that rebasing is disabled for the repository.
+
+Once you've created the pre-rebase hook, it will automatically run every time a rebase is attempted. If the hook script exits with a non-zero status code, the rebase will be cancelled and an error message will be displayed.
+
+Keep in mind that this pre-rebase hook only disables rebasing for your local repository. Other developers who clone the repository can still perform rebases on their own local copies. If you want to prevent rebasing for all contributors to the repository, you'll need to enforce this policy through your team's development guidelines and code review processes.
+
+
+
+
+
+MATCH AUTHORS EMAIL AGAINST REGULAR EXPRESSION
+
+You can match authors' email addresses against a regular expression in Git by using a pre-commit hook. Here are the steps to create a pre-commit hook that checks if the author's email matches a regular expression:
+
+1. Navigate to the root directory of your Git repository.
+2. Create a new file named pre-commit in the .git/hooks/ directory. You can use the touch command to create an empty file, like this: touch .git/hooks/pre-commit.
+3. Make the script executable by running the command: chmod +x .git/hooks/pre-commit
+4. Add the following code to the pre-commit file:
+
+
+    #!/bin/bash
+
+    # Define the regular expression for matching email addresses
+    EMAIL_REGEX='^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$'
+
+    # Get the email address of the author
+    AUTHOR_EMAIL=$(git log -1 --format='%ae')
+
+    # Check if the author's email matches the regular expression
+    if [[ ! $AUTHOR_EMAIL =~ $EMAIL_REGEX ]]
+    then
+    echo "Error: Author's email address is not valid."
+    exit 1
+    fi
+
+This script defines a regular expression for matching email addresses and uses the git log command to get the email address of the author who made the most recent commit. It then checks if the author's email matches the regular expression using the =~ operator. If the email address does not match the regular expression, the script exits with a non-zero status code and displays an error message.
+
+Once you've created the pre-commit hook, it will automatically run every time a developer runs the git commit command. If the hook script exits with a non-zero status code, the commit will be cancelled and an error message will be displayed.
+
+You can modify the regular expression to match the specific format of email addresses that you want to allow or disallow in your repository.
+
+
+
+
+
+LOCAL GIT HOOKS ARE NOT PUSHED TO THE REMOTE
+
+
+
+In Git, local hooks are scripts that can be executed before or after certain Git commands are run. These hooks are stored in the .git/hooks/ directory of your local repository and are not pushed to the remote repository. This means that other developers who clone your repository will not have access to your local hooks, and the hooks will not affect the remote repository or other developers' local copies of the repository.
+
+This behavior is intentional, as hooks are often used for tasks that are specific to a developer's local environment or workflow. For example, a pre-commit hook might check for syntax errors in code, but the specific tools or settings required to run this check may vary between developers. By keeping hooks local, each developer can customize the hooks to fit their own needs.
+
+However, this also means that if you want to enforce a certain policy or workflow for your team, you will need to ensure that all team members have the necessary hooks installed and configured on their local machines. You can provide guidance on how to install and configure hooks, but it's up to each developer to set up their own local hooks.
+
+It's worth noting that Git does not prevent developers from bypassing hooks or modifying their behavior. Developers can always choose to ignore a hook or modify the hook script itself if they have write access to the repository. For this reason, hooks should be seen as a helpful tool for enforcing best practices and catching errors, but should not be relied upon as the sole means of enforcing policy or preventing errors. Good communication and code review practices can also help to ensure that all team members are following the same guidelines and best practices.
+
+
+
+CLEANING UP LOCAL GIT HOOKS REPOSITORY 
+
+
+To clean up local Git hooks repository, follow these steps:
+
+1. Navigate to the .git/hooks/ directory in your local repository.
+2. Delete any hooks that you no longer need or want to keep. You can use the rm command to delete individual hooks, like this: rm pre-commit.
+3. If you want to remove all hooks at once, you can run the command: rm *.
+4. If you want to keep some hooks but disable them, you can rename the hooks by adding a .old extension to the filename. For example, you can rename a pre-commit hook to pre-commit.old, and Git will ignore the hook from now on.
+5. If you accidentally delete a hook that you still need, you can recreate it by copying it from another repository or from a backup copy.
+
+    It's important to note that deleting or modifying hooks can have unintended consequences, especially if other developers are using the same repository. Make sure you communicate with your team members before making any changes to the hooks, and consider creating a backup copy of the hooks before you make any modifications. Also, keep in mind that hooks are not pushed to the remote repository, so changes to local hooks will not affect other developers' copies of the repository.
+
+
+
+
+
+
+
+
+
+
+
+SKIPPING ALL GIT HOOKS USING --NO--VERIFY OPTION 
+
+
+In Git, you can skip all local hooks by using the --no-verify option with certain Git commands. This option tells Git to skip the execution of all pre-commit, pre-push, and other local hooks, and perform the command without any checks or validations.
+
+Here's an example of how to use the --no-verify option with the git commit command:
+
+    git commit --no-verify -m "Commit message"
+
+In this example, the --no-verify option tells Git to skip all pre-commit hooks and perform the commit without any checks. This can be useful in certain situations, such as when you need to make a quick commit and don't want to wait for a long-running pre-commit hook to complete.
+
+Note that using --no-verify option can be risky, as it can bypass important checks and validations that are designed to prevent errors and ensure code quality. It should be used with caution, and only when you are sure that the command you are running will not cause any problems.
+
+
+
+
+INTRODUCE LINTER AND RUN LINTER IN THE PRE-COMMIT HOOK 
+
+
+A linter is a tool that analyzes code for potential errors, bugs, or stylistic issues. It can help to catch common mistakes before they cause problems, and improve the overall quality of the code. In Git, you can use a linter as part of your pre-commit hook to automatically check your code for errors and ensure that it meets certain standards.
+
+Here's an example of how to introduce a linter and run it in the pre-commit hook:
+
+
+1. Install a linter tool. For example, you can install ESLint for JavaScript code by running the command: npm install eslint --save-dev
+
+2. Create a new file in the .git/hooks/ directory called pre-commit. This file should contain the following script:
+
+    #!/bin/sh
+
+    # Run ESLint on staged files
+    npm run lint -- --quiet --staged || {
+        echo "ESLint failed. Aborting commit."
+        exit 1
+    }
+
+
+This script runs the eslint command on all files that have been staged for commit (using the --staged option), and exits with an error if the linter detects any issues. The --quiet option tells ESLint to only output errors and warnings, and not show any other information.
+
+Make the script executable by running the command: chmod +x .git/hooks/pre-commit
+Now, when you run the git commit command, the pre-commit hook will automatically run the ESLint linter on your code and prevent the commit if any errors are detected. This helps to ensure that your code meets certain standards and is free of common errors.
+
+Note that the above example is specific to ESLint and JavaScript code, but you can use similar scripts with other linters and for other programming languages.
+
+
+
+
+
+
+
+
+
+
+INTRODUCE LINT-STAGED PACKAGE FOR CHECKS ONLY FOR THE STAGED FILES 
+
+lint-staged is a tool that allows you to run linters on only the files that have been staged for commit. This can help to save time and resources by avoiding linting the entire codebase and only focusing on the changes that are about to be committed.
+
+Here's an example of how to introduce lint-staged package for checks only for the staged files:
+
+1. Install the lint-staged package by running the command: npm install --save-dev lint-staged
+
+2. Add the following configuration to your package.json file:
+
+    {
+    "scripts": {
+        "lint": "eslint .",
+        "precommit": "lint-staged"
+    },
+    "lint-staged": {
+        "*.js": ["npm run lint", "git add"]
+    }
+    }
+
+
+In this example, we define two scripts: lint, which runs the ESLint linter on all files in the current directory, and precommit, which is used as the pre-commit hook and runs lint-staged to check only the staged files.
+
+The lint-staged configuration specifies that for all .js files, we want to run the npm run lint command (which runs ESLint) and then add the files to the Git index with git add. This will ensure that any errors detected by the linter will prevent the commit and the changes will be staged again for fixing.
+
+3. Now, when you run the git commit command, lint-staged will automatically check only the files that have been staged for commit, and run the eslint command on them. If any errors are detected, the commit will be prevented and the changes will be staged again for fixing.
+
+Using lint-staged with the pre-commit hook can help to catch errors early in the development process and ensure that only high-quality code is committed to the repository.
+
+
+
+
+VERIFY SELECTIVE LINTING AND TESTING USING LINT STAGED 
+
+
+When using lint-staged, you can specify which files to check and which linters or tests to run for each file type. This allows you to selectively lint and test your code based on the type of file and the specific requirements for that file type.
+
+Here's an example of how to verify selective linting and testing using lint-staged:
+
+1. Install the required linters and testing frameworks for your project. For example, you may want to install ESLint for linting JavaScript code, and Jest for testing.
+
+2. Install the lint-staged package by running the command: npm install --save-dev lint-staged
+
+3. Add the following configuration to your package.json file:
+
+    {
+    "scripts": {
+        "lint": "eslint",
+        "test": "jest",
+        "precommit": "lint-staged"
+    },
+    "lint-staged": {
+        "*.js": ["npm run lint", "npm run test --findRelatedTests"],
+        "*.css": ["stylelint"],
+        "*.scss": ["stylelint"],
+        "*.html": ["htmlhint"]
+    }
+    }
+
+
+In this example, we define three scripts: lint, which runs the ESLint linter, test, which runs Jest tests, and precommit, which is used as the pre-commit hook and runs lint-staged.
+
+The lint-staged configuration specifies which linters and tests to run for each file type. For example, for all .js files, we want to run the npm run lint command (which runs ESLint) and then run npm run test --findRelatedTests (which runs Jest tests for the related files only). For .css and .scss files, we want to run stylelint for linting, and for .html files, we want to run htmlhint for linting.
+
+4. Now, when you run the git commit command, lint-staged will automatically check and test only the files that have been staged for commit, based on the configuration in the lint-staged section of the package.json file.
+
+Using lint-staged with selective linting and testing can help to ensure that each file type in your project meets the specific standards and requirements, and can prevent errors and issues from being committed to the repository.
+
+
+
+
+
+
+VERIFYING COMMIT MESSAGE USING COMMITLINT 
+
+
+commitlint is a tool that helps to enforce commit message conventions in your Git repository. It allows you to define specific rules for the commit messages, such as format, length, content, and more, to ensure that all commits follow the same standard and are easy to understand and manage.
+
+Here's an example of how to verify commit messages using commitlint:
+
+1. Install the commitlint package by running the command: npm install --save-dev @commitlint/cli @commitlint/config-conventional
+
+2. Create a configuration file for commitlint in your project root directory, named commitlint.config.js. This file will contain the rules and configuration for commitlint. Here's an example configuration:
+
+    module.exports = {
+    extends: ['@commitlint/config-conventional'],
+    rules: {
+        'body-max-line-length': [1, 'always', 72],
+    },
+    };
+
+
+In this example, we extend the config-conventional preset, which includes the conventional commit format. We also add a custom rule to limit the maximum line length of the commit message body to 72 characters.
+
+3. Create a pre-commit hook that runs commitlint before each commit. Here's an example pre-commit hook using husky:
+
+    {
+    "husky": {
+        "hooks": {
+        "pre-commit": "commitlint -e"
+        }
+    }
+    }
+
+
+In this example, we define the pre-commit hook to run commitlint with the -e option, which allows the commit to be edited if the commit message does not meet the required standards.
+
+4. Now, when you run the git commit command, commitlint will verify that the commit message meets the defined rules and conventions. If the message does not meet the rules, the commit will be rejected and you will be prompted to fix the message.
+
+Using commitlint can help to ensure that all commit messages follow a consistent format and style, which can make it easier to manage and review commits in your Git repository.
+
+
+

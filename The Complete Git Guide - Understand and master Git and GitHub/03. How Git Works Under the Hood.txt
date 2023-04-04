@@ -1,20 +1,26 @@
 SECTION - 3
 
+
+
+HOW GIT WORKS UNDER THE HOOD 
+
+
 To learn how git works under the hood we need to firstly intialize the
 our first repository.
+
 We can intialize our repository using the following command :
     git init
+
 
 Note : 
 Git repository will be initially empty even if directory where you intialize Git is not empty and contains files and other directories.
 
-After entering "git init" command new hidden folder 
+After entering "git init" command new hidden folder will be created.
 
-Use ls -la to see the hidden .git file that is created after 
-initialising a git repository.
+Use ls -la to see the hidden .git file that is created after initialising a git repository.
 
-git : (master) refers to that this repository is managed by git.
-'master' is the name of the default branch. 
+    git : (master) refers to that this repository is managed by git.
+    'master' is the name of the default branch. 
 
 
 OVERVIEW OF THE .GIT FOLDER
@@ -41,11 +47,13 @@ cat HEAD
 GIT OBJECT TYPES 
 
 There are severaral types of objects git can store.
+
 These are : 
-1. Blob 
-2. Tree 
-3. Commit 
-4. Annotated Tag
+    1. Blob 
+    2. Tree 
+    3. Commit 
+    4. Annotated Tag
+
 
 These are the four data types that are used by git to store the file system
 and version control system.
@@ -62,6 +70,25 @@ COMMIT
 
 Annotated Tag 
 - > It is the persistent text pointer to a specific commit.
+
+
+
+In Git, there are four main data types that are used to manage the repository and its contents. These data types are:
+
+1.  Blob: A blob (short for binary large object) is a binary data object that represents the contents of a file. 
+    Blobs are the smallest unit of data in Git and are used to represent the content of files, such as text, images, or binary data.
+
+2.  Tree: A tree is a Git object that represents a directory. It contains references to other trees and blobs, 
+    representing the contents of the directory and its subdirectories. Trees are used to represent the hierarchical structure of the repository.
+
+3.  Commit: A commit is a Git object that represents a specific snapshot of the repository at a given point in time. 
+    A commit contains a reference to a tree object that represents the state of the repository at the time of the commit, as well as metadata such as the author, date, and commit message.
+
+4.  Tag: A tag is a Git object that represents a named pointer to a specific commit. 
+    Tags are used to mark specific points in the history of the repository, such as a release version or a major milestone.
+
+These four data types, along with various Git commands and operations, allow for efficient and robust management of version control in Git.
+
 
 
 Now, For the management/creation of Blobs and Trees we use the so-called 
@@ -99,9 +126,9 @@ Note :
     According to specification, keys in JSON "should" be unique 
     and it is technically possible to create same keys, but no recommended.
 
-Git also stores data in a key value pair format .
-Key in git is the hash of the object.
-Key in git is generated based on the value.
+    Git also stores data in a key value pair format .
+    Key in git is the hash of the object.
+    Key in git is generated based on the value.
 
 
 
@@ -209,10 +236,16 @@ Git Blobs don't store filenames
 
 - > Size and type of each object are stored in git inside each object.
 
-//////////////////////////////////////////////
-TODO
-//////////////////////////////////////////////
+- > Git blobs do not store filenames. Instead, blobs only store the contents of the file. 
+    The reason for this design is to allow Git to efficiently store and manage large numbers of files and their versions.
 
+When you add a file to a Git repository, Git creates a new blob object to represent the contents of the file. 
+This blob object is assigned a unique SHA-1 hash identifier based on the contents of the file. 
+Git then creates a tree object to represent the directory structure of the repository at the time of the commit. 
+The tree object contains a list of filenames and pointers to their corresponding blob objects.
+
+The filenames are not actually stored in the blob objects themselves because a single blob can be shared across multiple files with different filenames. 
+This is particularly useful when you have multiple files with identical contents, such as code libraries or image assets.
 
 
 - > Every object in git is stored along with its type ,Length and Delimeter.
@@ -234,10 +267,117 @@ Permissions :
     160000 - > Gitlink
 
 
-//////////////////////////////////////////
-TO DO AFTER THIS 
-//////////////////////////////////////////
+In Git, object permissions refer to the access control settings that determine who can read, write, and execute Git objects such as blobs, trees, commits, and tags.
 
+By default, Git does not provide any built-in authentication or authorization mechanisms. 
+
+However, you can implement object-level permissions in Git using one of the following methods:
+
+1.  File system permissions: You can use the file system permissions to restrict access to Git repositories and objects. 
+    For example, you can set the read/write/execute permissions of the repository files and directories to control who can access and modify them.
+
+2.  Gitolite: Gitolite is an open-source access control layer for Git that provides fine-grained control over who can access 
+    and modify repositories and their objects. Gitolite uses SSH keys to authenticate users and provides a
+    configuration file where you can define access rules for repositories and their objects.
+
+3.  GitLab/GitHub: GitLab and GitHub are popular Git hosting platforms that provide built-in access control features for 
+    repositories and their objects. You can define access levels, permissions, and roles for users and groups in the repository settings.
+
+
+
+GIT TREE OBJECT WITH EXAMPLE 
+
+In Git, a tree object represents a directory, and contains references to other tree and blob objects, along with metadata such as file names, modes, and permissions. A tree object is similar to a directory in a file system, and is used to organize files and directories in a Git repository.
+
+Here is an example of a Git tree object:
+
+    tree 6857a
+    mode 100644 blob 6f2a8c3a3a3f0f63e8ea166f00d3323a3f7f3c12    README.md
+    mode 100644 blob 3367a289287bc8f5d5e5a6ce5e6f06c6d80d6f4c    index.html
+    mode 100644 blob 14dcb9c04fc70a89f26d602cc0a7e431a75f4220    script.js
+
+In this example, the tree object has the ID 6857a and contains three entries:
+
+    The first entry is a blob object with the ID 6f2a8c3a3a3f0f63e8ea166f00d3323a3f7f3c12 and the file name README.md. 
+    The file has the mode 100644, which means it is a regular file with read and write permissions for the owner, 
+    and read-only permissions for others.
+
+    The second entry is a blob object with the ID 3367a289287bc8f5d5e5a6ce5e6f06c6d80d6f4c and the file name index.html. 
+    The file has the same mode as the first file.
+
+    The third entry is a blob object with the ID 14dcb9c04fc70a89f26d602cc0a7e431a75f4220 and the file name script.js. 
+    The file has the same mode as the first two files.
+
+These entries represent the files in a directory, and the tree object serves as a snapshot of the directory at a specific point in time. 
+When you make changes to the files or add new files, Git creates new blob objects and updates the tree object to reference the new objects.
+
+
+
+GIT READ-TREE COMMAND
+
+In Git, read-tree is a command that updates the index with the contents of a specified tree object. 
+A tree object in Git represents a directory listing in a Git repository, 
+and contains information about the names and SHA-1 hashes of its contents (subdirectories and files).
+
+read-tree can be used to update the index with the contents of a commit or a tree object, 
+and can be used for tasks such as merging or switching branches. When read-tree is used to update the index, 
+it reads the specified tree object and updates the index with the information contained in the tree.
+This operation is often followed by a call to write-tree, which creates a new tree object from the updated index.
+
+Here's an example of using read-tree to update the index with the contents of a commit:
+
+    $ git read-tree -u --reset <commit> 
+- > This command updates the index with the contents of the specified commit, and also resets the working directory to match the index.
+
+Here's another example, using read-tree to merge two branches:
+
+    $ git read-tree -m <branch1> <branch2>
+
+    This command updates the index with the contents of the common ancestor of branch1 and branch2,
+    and then applies the changes from both branches to the index. The resulting index can then be used to create a new commit, 
+    representing the merge of the two branches.
+
+
+
+
+GIT CHECKOUT -INDEX COMMAND 
+
+The git checkout command is used in Git to switch between branches or restore files in the working directory to their previous state. 
+The -index option is used in conjunction with the git checkout command to update the index with the changes from the specified commit or branch.
+
+When the -index option is used, Git will update the index to reflect the state of the specified commit or branch, but will not modify the files in the working directory. This can be useful when you want to stage changes for a commit, but don't want to modify the working directory yet.
+
+Here's an example of how to use the git checkout -index command:
+
+    # Create a new file and stage it for commit
+    $ echo "Hello, world" > newfile.txt
+    $ git add newfile.txt
+
+    # Check out a previous commit without modifying the working directory
+    $ git checkout -index HEAD~1
+
+    # Verify that the file in the working directory is unchanged
+    $ cat newfile.txt
+    Hello, world
+
+    # Verify that the index has been updated with the changes from the previous commit
+    $ git status
+    On branch master
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+            new file:   newfile.txt
+
+In the above example, we first create a new file newfile.txt and stage it for commit. 
+We then use git checkout -index HEAD~1 to check out the previous commit without modifying the working directory. 
+We verify that the file in the working directory is unchanged, and that the index has been updated with the changes from the previous commit.
+
+
+
+HOW MANY FOLDERS COULD BE CREATED FOR OBJECTS IN GIT 
+
+In Git, there can be up to 256 subdirectories (levels of nesting) for objects.
+This limit is set to prevent issues with filesystems that do not support deep nesting. 
+However, it is rare for repositories to require more than a few levels of nesting for objects.
 
 
 

@@ -1,0 +1,38 @@
+SECTION - 16
+
+GITHUB PAGES 
+
+- > This is used to host websites on the web.
+
+STEPS FOR CREATING A GITHUB PAGE 
+
+
+
+
+
+HOW TO CHANGE DEFAULT BRANCH FOR GITHUB PAGES 
+
+
+
+- > Sometimes one will get an error as git will cache another username for other github account.
+- > you should not get any errors here if you use only one github account.
+
+To clan the cached credentials we use the following command : 
+    git config credential.helper ""
+    git push -u origin master 
+
+
+
+HOW TO CONFIGURE CUSTOM DOMAIN FOR GITHUB PAGES 
+
+
+
+
+
+
+HOW TO CREATE STATIC GITHUB PAGE USING MARKDOWN
+ 
+
+
+
+ 

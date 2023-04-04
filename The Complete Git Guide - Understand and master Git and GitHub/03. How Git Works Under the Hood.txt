@@ -5,15 +5,14 @@ SECTION - 3
 HOW GIT WORKS UNDER THE HOOD 
 
 
-To learn how git works under the hood we need to firstly intialize the
-our first repository.
+To learn how git works under the hood we need to firstly intialize our first repository.
 
 We can intialize our repository using the following command :
     git init
 
 
 Note : 
-Git repository will be initially empty even if directory where you intialize Git is not empty and contains files and other directories.
+Git repository will be initially empty even if the directory where you intialize Git is not empty and contains files and other directories.
 
 After entering "git init" command new hidden folder will be created.
 
@@ -24,6 +23,24 @@ Use ls -la to see the hidden .git file that is created after initialising a git 
 
 
 OVERVIEW OF THE .GIT FOLDER
+
+1.  HEAD: This file points to the current branch, which is currently checked out.
+
+2.  branches/: This folder contains references to all the local and remote branches in the repository.
+
+3.  config: This file contains configuration options for the Git repository, such as the remote URL, 
+    branch tracking information, and user preferences.
+
+4.  hooks/: This folder contains Git hooks, which are scripts that can be executed before or after certain Git actions,
+    such as commit, push, or merge.
+
+5.  objects/: This folder contains Git objects, which are the fundamental units that Git uses to store data, 
+    including blobs, trees, and commits.
+
+6.  refs/: This folder contains pointers to specific Git objects, such as branches, tags, and remote tracking branches.
+
+7.  index: This file contains the current index or staging area, 
+    which is where Git keeps track of changes that have been added but not yet committed.
 
 - > Never manually change the .GIT FOLDER
 
@@ -79,15 +96,18 @@ In Git, there are four main data types that are used to manage the repository an
     Blobs are the smallest unit of data in Git and are used to represent the content of files, such as text, images, or binary data.
 
 2.  Tree: A tree is a Git object that represents a directory. It contains references to other trees and blobs, 
-    representing the contents of the directory and its subdirectories. Trees are used to represent the hierarchical structure of the repository.
+    representing the contents of the directory and its subdirectories. 
+    Trees are used to represent the hierarchical structure of the repository.
 
 3.  Commit: A commit is a Git object that represents a specific snapshot of the repository at a given point in time. 
-    A commit contains a reference to a tree object that represents the state of the repository at the time of the commit, as well as metadata such as the author, date, and commit message.
+    A commit contains a reference to a tree object that represents the state of the repository at the time of the commit, 
+    as well as metadata such as the author, date, and commit message.
 
 4.  Tag: A tag is a Git object that represents a named pointer to a specific commit. 
     Tags are used to mark specific points in the history of the repository, such as a release version or a major milestone.
 
-These four data types, along with various Git commands and operations, allow for efficient and robust management of version control in Git.
+    These four data types, along with various Git commands and operations, 
+    allow for efficient and robust management of version control in Git.
 
 
 
@@ -101,10 +121,10 @@ Low level commands like
 To Create a git object we use  : 
     echo "Hello, Git" | git hash-object --stdin -w
 
-- > After pressing enter, we get a strange sequence of characters.
-- > There will be a new folder that will be created inside the .git folder 
-- > That folders name will be the first 2 characters of the strange sequence of strings we got.
-- > Inside that folder a file named with the rest of the characters will be made.
+    - > After pressing enter, we get a strange sequence of characters.
+    - > There will be a new folder that will be created inside the .git folder 
+    - > That folders name will be the first 2 characters of the strange sequence of strings we got.
+    - > Inside that folder a file named with 'the rest of the characters' will be made.
 
 This all means that git has added the object into its file structure.
 
